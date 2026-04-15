@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You 💛</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #111, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+    }
+
+    video {
+      width: 75%;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.15);
+    }
+
+    #message {
+      margin-top: 25px;
+      font-size: 26px;
+      max-width: 600px;
+      display: none;
+      white-space: pre-line;
+      line-height: 1.5;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      background: white;
+      animation: blink 1s infinite;
+      margin-left: 5px;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<video id="myVideo" autoplay controls>
+  <source src="https://drive.google.com/uc?export=download&id=1TFtJmC56g3rQSUjaiSnPvSB2aiQPC7Fe" type="video/mp4">
+</video>
+
+<div id="message"></div>
+
+<script>
+  const text = `All the best 💥
+You’re gonna do great..
+Miracles do happen for you 😉✨`;
+
+  const messageDiv = document.getElementById("message");
+  const video = document.getElementById("myVideo");
+
+  function typeWriter(text, i = 0) {
+    if (i < text.length) {
+      messageDiv.innerHTML += text.charAt(i);
+      setTimeout(() => typeWriter(text, i + 1), 40);
+    } else {
+      messageDiv.innerHTML += '<span class="cursor"></span>';
+    }
+  }
+
+  video.onended = function() {
+    messageDiv.style.display = "block";
+    typeWriter(text);
+  };
+</script>
+
+</body>
+</html>
