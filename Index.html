@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For You ✌🏻</title>
+
+<style>
+body{
+margin:0;
+background:radial-gradient(circle,#111,#000);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+flex-direction:column;
+color:white;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+}
+
+iframe{
+width:80%;
+height:450px;
+border-radius:20px;
+border:none;
+}
+
+#message{
+display:none;
+margin-top:25px;
+font-size:26px;
+white-space:pre-line;
+max-width:600px;
+line-height:1.5;
+}
+</style>
+</head>
+
+<body>
+
+<iframe
+src="https://www.youtube.com/embed/mnZJkO-Vb4g"
+allowfullscreen>
+</iframe>
+
+<div id="message"></div>
+
+<script>
+const text=`All the best 💥
+You're gonna do great..
+Miracles do happen for you 😉✨`;
+
+const messageDiv=document.getElementById("message");
+
+setTimeout(()=>{
+messageDiv.style.display="block";
+
+let i=0;
+
+function typeWriter(){
+if(i<text.length){
+messageDiv.innerHTML+=text.charAt(i);
+i++;
+setTimeout(typeWriter,40);
+}
+}
+
+typeWriter();
+
+},39000); // change this to your video length
+</script>
+
+</body>
+</html>
